@@ -2,7 +2,7 @@ var express = require('express'); // use express
 var app = express();
 var port = process.env.PORT || 5000; // deployment/port
 var bodyParser = require('body-parser'); // require body-parser
-var products = require('./routes/products.router.js'); // accesses router
+var products = require('./routes/product.router.js'); // accesses router
 
 
 app.use(bodyParser.json());
