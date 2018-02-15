@@ -8,6 +8,8 @@ myRetail is a rapidly growing company with HQ in Richmond, VA and over 200 store
 - Express
 - AngularJS 
 - Node.js
+- axios
+- 
 
 ## Getting Started
 
