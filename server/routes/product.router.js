@@ -121,8 +121,7 @@ router.put('/:id', function (req, res) {
                 console.log("Error!", err);
                 res.sendStatus(500);
             } else {
-                console.log('happened')
-                res.sendStatus(201)
+                res.sendStatus(204)
             };
         })
 })//end update route
