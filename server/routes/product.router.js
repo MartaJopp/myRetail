@@ -55,10 +55,19 @@ router.get('/:id', function (req, res) {
                     console.log("Error!", err);
                     res.sendStatus(500);
                 } else {
-                    // res.send(sendBack, );
-                    console.log('send back', sendBack)
-                    console.log('product', productFound)
-                    console.log('keyword', keyword)
+                    
+                    var sendProduct = {
+                        name: sendBack,
+                        product_id: productFound.product_id,
+                        current_price: {
+                            currency_code: productFound.current_price.currency_code,
+                            value: productFound.current_price.value
+                        }
+
+                    }
+                            
+                    console.log('send back', sendProduct);
+                    res.send(sendProduct)
                 }
             });            
             // res.send(sendBack)

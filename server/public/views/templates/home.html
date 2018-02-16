@@ -6,3 +6,8 @@ Is Angular Working?  {{4 === 4}}
     <button class="submit" ng-click="mrc.getProduct(mrc.idNumber)">Send</button>
 </div>
 {{mrc.productData}}
+<br><br>
+Product Id: {{mrc.productData.product_id}}<br><br>
+Product Name: {{mrc.productData.name}}<br><br>
+Current Price:  {{mrc.productData.current_price.value}}<br><br>
+Currency Code:  {{mrc.productData.current_price.currency_code}}<br><br>
