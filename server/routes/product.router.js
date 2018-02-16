@@ -19,20 +19,6 @@ var Product = mongoose.model('Product', ProductSchema, 'products');
 const axios = require("axios");
 let keyword;
 
-
-// const getProduct = async url => {
-//     try {
-//         console.log(keyword)
-//         const response = await axios.get(url);
-//         const data = response.data;
-//         console.log(
-//             data.product.item.product_description.title
-//         );
-//     } catch (error) {
-//         console.log(error);
-//     }
-// };
-
 router.get('/:id', function (req, res) {  
     let keyword = req.params.id;
     keyword = keyword.toString();
@@ -79,20 +65,25 @@ router.get('/:id', function (req, res) {
    getProduct(url)
 })
 
-
-
-
-// getProduct(url);
-
-// router.get('/:id', function (req, res){
-
-//     var id = req.params.id;
-//     console.log('getting the following id:', id)
-//     Product.find({"product_id": id }).exec(function (err, product){
-
-//     })//end product.find
-    
-// })//end get by id route
+//update the price of the product
+router.put('/:id', function (req, res) {  
+let keyword = req.params.id;
+    Product.update({ "product_id": keyword }, {$set: {
+        "current_price": {
+            "currency_code": req.body.currency_code,
+            "value": req.body.value
+        }
+    }}
+        , function (err, productFound) {
+        if (err) {
+            console.log("Error!", err);
+            res.sendStatus(500);
+        } else {
+            console.log('happened')
+            res.sendStatus(201)
+        };   
+    }) 
+})//end update route
 
 //Router available to other files
 module.exports = router;

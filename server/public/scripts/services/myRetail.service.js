@@ -22,8 +22,8 @@ self.newPrice = {
     } //end getProduct
 
     //edit Price
-    self.editPrice = function (id) {
-        self.editPrice = true;
+    self.updatePrice = function (id, newPrice) {
+        self.newPrice = newPrice
         return $http.put('/products/' + id, self.newPrice).then(function (response) {
             return response
             console.log(response)
