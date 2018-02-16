@@ -33,26 +33,40 @@ let keyword;
 //     }
 // };
 
-router.get('/:id', function (req, res) {  
-    keyword = req.params.id;
+router.get('/:id', function (req, res) {
+    let keyword = req.params.id;
     keyword = keyword.toString();
     const url =
-        "http://redsky.target.com/v2/pdp/tcin/" + keyword + "?excludes=taxonomy,price,promotion,bulk_ship,rating_and_review_reviews,rating_and_review_statistics,question_answer_statistics";
+        "http://redsky.target.com/v2/pdp/tcin/"
+        + keyword + "?excludes=taxonomy,price,promotion,bulk_ship,"
+        + "rating_and_review_reviews,rating_and_review_statistics,"
+        + "question_answer_statistics";
     const getProduct = async url => {
         try {
             console.log(keyword)
             const response = await axios.get(url);
             const data = response.data;
             const sendBack = data.product.item.product_description.title;
-            console.log(
-                data.product.item.product_description.title
-            );
-            res.send(sendBack)
+            // var query = {}; 
+            // query['product_id'] = { "$eq": 1669652 }
+            // var search = keyword.toString()
+            Product.select({ },function (err, productFound) {
+                if (err) {
+                    console.log("Error!", err);
+                    res.sendStatus(500);
+                } else {
+                    // res.send(sendBack, );
+                    console.log('send back', sendBack)
+                    console.log('product', productFound)
+                    console.log('keyword', keyword)
+                }
+            });
+            // res.send(sendBack)
         } catch (error) {
             console.log(error);
         }
     };
-   getProduct(url)
+    getProduct(url)
 })
 
 
@@ -67,7 +81,7 @@ router.get('/:id', function (req, res) {
 //     Product.find({"product_id": id }).exec(function (err, product){
 
 //     })//end product.find
-    
+
 // })//end get by id route
 
 //Router available to other files

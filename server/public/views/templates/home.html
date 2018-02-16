@@ -5,6 +5,4 @@ Is Angular Working?  {{4 === 4}}
     <input type="text" ng-model="mrc.idNumber">
     <button class="submit" ng-click="mrc.getProduct(mrc.idNumber)">Send</button>
 </div>
-<ul ng-repeat="product in mrc.productData">
-    <li>{{product}}</li>
-</ul>
+{{mrc.productData}}
