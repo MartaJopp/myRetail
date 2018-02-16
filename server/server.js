@@ -43,3 +43,5 @@ mongoose.connection.on('open', function () {
 app.listen(port, function () {
     console.log('Listening on port', port) // lets us know server is working
 })
+
+module.exports = app;

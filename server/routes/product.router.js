@@ -115,8 +115,7 @@ router.put('/:id', function (req, res) {
                 "value": req.body.value
             }
         }
-    }
-        , function (err, productFound) {
+    } , function (err, productFound) {
             if (err) {
                 console.log("Error!", err);
                 res.sendStatus(500);
