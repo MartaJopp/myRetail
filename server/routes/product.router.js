@@ -33,11 +33,11 @@ let keyword;
 //     }
 // };
 
-router.get('/:id', function (req, res) {
+router.get('/:id', function (req, res) {  
     let keyword = req.params.id;
     keyword = keyword.toString();
     const url =
-        "http://redsky.target.com/v2/pdp/tcin/"
+        "http://redsky.target.com/v2/pdp/tcin/" 
         + keyword + "?excludes=taxonomy,price,promotion,bulk_ship,"
         + "rating_and_review_reviews,rating_and_review_statistics,"
         + "question_answer_statistics";
@@ -49,8 +49,8 @@ router.get('/:id', function (req, res) {
             const sendBack = data.product.item.product_description.title;
             // var query = {}; 
             // query['product_id'] = { "$eq": 1669652 }
-            // var search = keyword.toString()
-            Product.select({ },function (err, productFound) {
+            keyword = Number(keyword)
+            Product.findOne({"product_id": keyword}, function (err, productFound) {
                 if (err) {
                     console.log("Error!", err);
                     res.sendStatus(500);
@@ -60,13 +60,14 @@ router.get('/:id', function (req, res) {
                     console.log('product', productFound)
                     console.log('keyword', keyword)
                 }
-            });
+            });            
             // res.send(sendBack)
         } catch (error) {
-            console.log(error);
+            console.log('ERRORRRRRRRRRRRR');
+            res.sendStatus(404)
         }
     };
-    getProduct(url)
+   getProduct(url)
 })
 
 
@@ -81,7 +82,7 @@ router.get('/:id', function (req, res) {
 //     Product.find({"product_id": id }).exec(function (err, product){
 
 //     })//end product.find
-
+    
 // })//end get by id route
 
 //Router available to other files
