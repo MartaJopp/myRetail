@@ -1,13 +1,38 @@
-Is Angular Working?  {{4 === 4}}
-
-
-<div class = "container">
+<div class="container">
     <input type="text" ng-model="mrc.idNumber">
     <button class="submit" ng-click="mrc.getProduct(mrc.idNumber)">Send</button>
+
+    {{mrc.productData.data.data}}
+    <br>
+    <br>
+    <p>Product Id: {{mrc.productData.product_id}}</p>
+    <br>
+    <p>Product Name: {{mrc.productData.name}}</p>
+    <br>
+    <p>Current Price: {{mrc.productData.current_price.value}}</p>
+    <md-button ng-show="mrc.priceShown" class="md-icon-button"
+        aria-label="Edit">
+        <md-icon class="material-icons blue1" ng-click="mrc.editPrice()">edit</md-icon>
+    </md-button>
+    <div ng-show="mrc.editing">
+        <div layout-gt-xl="row">
+            <md-input-container class="md-block" flex-gt-xl>
+                <label>Value</label>
+                <input id="value" ng-model="mrc.newPrice.value">
+            </md-input-container>
+        </div>
+        <div layout-gt-xl="row">
+            <md-input-container class="md-block" flex-gt-xl>
+                <label>Currency Code</label>
+                <input id="currency" ng-model="mrc.newPrice.currency_code">
+            </md-input-container>
+        </div>
+        <md-button class="md-raised" ng-click="mrc.updatePrice(mrc.productData.product_id, mrc.newPrice)">
+            Update
+        </md-button>
+    </div>
+    <br>
+    <p>Currency Code: {{mrc.productData.current_price.currency_code}}</p>
+    <br>
+
 </div>
-{{mrc.productData}}
-<br><br>
-Product Id: {{mrc.productData.product_id}}<br><br>
-Product Name: {{mrc.productData.name}}<br><br>
-Current Price:  {{mrc.productData.current_price.value}}<br><br>
-Currency Code:  {{mrc.productData.current_price.currency_code}}<br><br>
