@@ -1,0 +1,8 @@
+{
+    "name": "My Retail Task API Documentation",
+    "version": "1.0.0",
+    "description": "My Retail Task API Documentation",
+    "template": {
+        "forceLanguage": "en"
+    }
+}
