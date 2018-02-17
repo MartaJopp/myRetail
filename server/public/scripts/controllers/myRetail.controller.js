@@ -4,7 +4,7 @@ myApp.controller('MyRetailController', function ($http, $scope, MyRetailService)
     vm.productData
     vm.priceShown = false;
     vm.editing = false;
-
+vm.message;
     //get Product of id searched
     vm.getProduct = function (id) {
         MyRetailService.getProduct(id).then(function (response) {
@@ -13,8 +13,11 @@ myApp.controller('MyRetailController', function ($http, $scope, MyRetailService)
             if (vm.productData != '') {
                 vm.priceShown = true;
             }
-            console.log('response', response)
-        })
+            console.log('response', response.data)
+
+    }).catch(function () {
+            console.log(error)
+        });
     }//end get Product function
 
     //edit Price
@@ -36,12 +39,19 @@ myApp.controller('MyRetailController', function ($http, $scope, MyRetailService)
             vm.idNumber = ''
         }).catch(function () {
             swal('Something went wrong.');
+            console.log(error)
         });
     }//end update price
 
     vm.cancel = function () {
         vm.editing = false;
 
+    }
+
+    vm.addProduct = function (product) {
+        MyRetailService.addProduct(product).then(function (response){
+            console.log(response)
+        })
     }
 
 })//end controller

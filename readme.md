@@ -32,6 +32,12 @@ Steps to get the development environment running.
 2. `npm install`
 3. `npm start`
 
+## Testing
+
+Tests are located in server/tests/server.test.js.
+
+Test can be run by executing npm test.
+
 ## Screen Shot
 
 -will go here

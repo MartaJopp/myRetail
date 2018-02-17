@@ -3,6 +3,29 @@
     <div class="header">
         <h1>myRetail RESTful Service</h1>
     </div>
+<div class="row">
+    <h3>Add Product</h3>
+    <div layout-gt-xl="row">
+        <md-input-container class="md-block editInput">
+            <label>Value</label>
+            <input id="value" ng-model="mrc.addProduct.current_price.value">
+        </md-input-container>
+    </div>
+    <div layout-gt-xl="row">
+        <md-input-container class="md-block editInput">
+            <label>Currency Code</label>
+            <input id="currency" ng-model="mrc.addProduct.current_price.currency_code">
+        </md-input-container>
+    </div>
+    <div layout-gt-xl="row">
+        <md-input-container class="md-block editInput">
+            <label>Id</label>
+            <input id="currency" ng-model="mrc.addProduct.product_id">
+        </md-input-container>
+    </div>
+    <md-button class="md-raised" ng-click="mrc.addProduct(mrc.addProduct)">
+        Update
+    </md-button>
 
     <div class="row" id="searchBox">
         <form name="searchForm">
