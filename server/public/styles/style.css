@@ -37,7 +37,7 @@ text-align: center;
 }
 
 .results {
-    margin-left: 20px;
+    margin-left: 100px;
 }
 
 #edit {
@@ -54,4 +54,10 @@ span {
 
 .editInput {
     width: 300px;
+}
+
+#message {
+    font-weight: bold;
+    color: red;
+    text-align: center
 }

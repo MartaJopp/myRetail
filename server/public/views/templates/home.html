@@ -6,25 +6,25 @@
     <div class="row" id="searchBox">
         <form name="searchForm">
             <md-input-container>
-                <label>Search by Product Id</label>
+                <label>Search by Product ID</label>
                 <span>
                     <input name="search" ng-model="mrc.idNumber" required md-maxlength="8" minlength="8">
                     <md-button ng-click="mrc.getProduct(mrc.idNumber)" class="md-raised md-primary">Search</md-button>
                 </span>
                 <div ng-messages="searchForm.search.$error" ng-show="searchForm.search.$dirty">
-                    <div ng-message="md-maxlength">Product id's are 8 digits.</div>
+                    <div ng-message="md-maxlength">Product ID's are 8 digits.</div>
                 </div>
             </md-input-container>
         </form>
     </div>
-    <div class = "row" id="message">
-{{mrc.message}}
+    <div class="row" id="message">
+        <h4>{{mrc.message}}</h4>
     </div>
     <div class="row">
         <div class="column">
             <div class="results" <br>
                 <br>
-                <p>Product Id:
+                <p>Product ID:
                     <span>{{mrc.productData.product_id}}</span>
                 </p>
                 <br>

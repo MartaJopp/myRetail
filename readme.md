@@ -6,6 +6,8 @@ The goal for this exercise is to create an end-to- end Proof-of- Concept for a p
 
 Your goal is to create a RESTful service that can retrieve product and price details by ID. The URL structure is up to you to define, but try to follow some sort of logical convention.
 
+[Click here for a live demonstration of this application](https://morning-oasis-48913.herokuapp.com/apidoc/.)
+
 ## Built With
 
 - MongoDB
@@ -13,6 +15,9 @@ Your goal is to create a RESTful service that can retrieve product and price det
 - AngularJS 
 - Node.js
 - axios
+- Chai and Chai-HTTP for testing
+- AngularJS Material for styling
+- apidocjs for API Documentation
 
 ## Getting Started
 
@@ -32,16 +37,19 @@ Steps to get the development environment running.
 2. `npm install`
 3. `npm start`
 
-## Testing
+## Documentation and Testing
 
 Tests are located in server/tests/server.test.js.
 
 Test can be run by executing npm test.
 
+API documentation is located at localhost:5000/apidoc or on the live demo at https://morning-oasis-48913.herokuapp.com/apidoc/.
+
 ## Screen Shot
 
--will go here
-
+![Product Found, Update](server/public/images/productupdate.png)
+![Product Not Found](server/public/images/restful404.png)
+![API Documentation Example - API docs can be found at localhost or on the live demo /apidoc](server/public/images/apidocexample.png)
 ### Completed Features
 
 High level list of items completed.
@@ -51,3 +59,7 @@ High level list of items completed.
 - [x] Reads pricing information from a NoSQL data store and combines it with the product id and name from the HTTP request into a single response.
 - [x] Accepts an HTTP PUT request at the same path (/products/{id}),
 containing a JSON request body similar to the GET response, and updates the product’s price in the data store.
+
+## Author
+
+* Marta Jopp
