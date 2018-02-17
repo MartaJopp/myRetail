@@ -65,9 +65,11 @@ Test can be run by executing npm test.
 API documentation is located at localhost:5000/apidoc or on the live demo /apidoc - [click here](https://morning-oasis-48913.herokuapp.com/apidoc/).
 
 ## Screen Shot
-
+Product Found, Update:
 ![Product Found, Update](server/public/images/productupdate.png)
+404 - Product Does Not Exist:
 ![Product Not Found](server/public/images/restful404.png)
+API Documentation Example - (API docs can be found at /apidoc):
 ![API Documentation Example - API docs can be found at localhost or on the live demo /apidoc](server/public/images/apidocexample.png)
 ### Completed Features
 
