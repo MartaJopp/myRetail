@@ -6,7 +6,7 @@ myApp.controller('MyRetailController', function ($http, $scope, MyRetailService)
     vm.editing = false;
     vm.message = ''
 
-    
+
     //get Product of id searched
     vm.getProduct = function (id) {
         MyRetailService.getProduct(id).then(function (response) {
@@ -18,7 +18,7 @@ myApp.controller('MyRetailController', function ($http, $scope, MyRetailService)
                 vm.idNumber = ''
             }
             else {
-                vm.message = 'Please check the product ID number as product ID: ' 
+                vm.message = 'Please check the product ID number. Product ID: ' 
                 + vm.idNumber + ' does not exist.'
             }
         }).catch(function () {
