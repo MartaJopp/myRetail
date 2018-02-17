@@ -6,7 +6,7 @@ The goal for this exercise is to create an end-to- end Proof-of- Concept for a p
 
 Your goal is to create a RESTful service that can retrieve product and price details by ID. The URL structure is up to you to define, but try to follow some sort of logical convention.
 
-[Click here for a live demonstration of this application](https://morning-oasis-48913.herokuapp.com/apidoc/.)
+[Click here for a live demonstration of this application](https://morning-oasis-48913.herokuapp.com.)
 
 ## Built With
 
@@ -36,6 +36,25 @@ Steps to get the development environment running.
 1. Download this project.
 2. `npm install`
 3. `npm start`
+4. Insert following test cases into MongoDB:
+```javascript
+    {
+    "_id" : ObjectId("5a866b825079c35e229105b1"),
+    "product_id" : 16696652,
+    "current_price" : {
+        "currency_code" : "USD",
+        "value" : 113.99
+    }
+}
+{
+    "_id" : ObjectId("5a8674d25079c35e22910836"),
+    "product_id" : 13860428,
+    "current_price" : {
+        "currency_code" : "USD",
+        "value" : 13.99
+    }
+}
+```
 
 ## Documentation and Testing
 
@@ -43,7 +62,7 @@ Tests are located in server/tests/server.test.js.
 
 Test can be run by executing npm test.
 
-API documentation is located at localhost:5000/apidoc or on the live demo at https://morning-oasis-48913.herokuapp.com/apidoc/.
+API documentation is located at localhost:5000/apidoc or on the live demo /apidoc - [click here](https://morning-oasis-48913.herokuapp.com/apidoc/).
 
 ## Screen Shot
 

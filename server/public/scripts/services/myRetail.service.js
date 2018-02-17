@@ -3,14 +3,13 @@ myApp.service('MyRetailService', function ($http, $location) {
     var self = this;
 
 
-    self.editPrice = false;
+    // self.editPrice = false;
 
     self.newPrice = {
         currency_code: '',
         value: ''
     }
 
-    self.priceShown = false;
 
     //get Product information
     self.getProduct = function (id) {
