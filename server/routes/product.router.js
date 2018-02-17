@@ -126,12 +126,14 @@ router.put('/:id', function (req, res) {
 
 router.post('/', function (req, res){
     var addProduct = new Product(req.body) 
+    console.log('coming here')
     addProduct.save(function (err, data) {
         if (err) {
             console.log(err);
             res.sendStatus(500);
         } else {
             res.sendStatus(201);
+            console.log('did this')
         }
     }); // END SAVE
 }); // END POST Route
