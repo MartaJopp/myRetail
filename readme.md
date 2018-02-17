@@ -17,7 +17,7 @@ Your goal is to create a RESTful service that can retrieve product and price det
 - axios
 - Chai and Chai-HTTP for testing
 - AngularJS Material for styling
-- apidocjs for API Documentation
+- APIDOC for API Documentation
 
 ## Getting Started
 
