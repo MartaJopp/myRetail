@@ -10,6 +10,8 @@ myApp.service('MyRetailService', function ($http, $location) {
         value: ''
     }
 
+    self.priceShown = false;
+
     //get Product information
     self.getProduct = function (id) {
         console.log('product Id', id)
@@ -34,23 +36,5 @@ myApp.service('MyRetailService', function ($http, $location) {
         })
     } //end edit Price
 
-    self.product = {
-        product_id: '',
-        current_price: {
-            currency_code: '',
-            value: ''
-        }
-    }
-
-    self.addProduct = function (product) {
-        self.product.product_id = product.product_id;
-        self.product.current_price.currency_code = product.currency_code;
-        self.product.current_price.value = product.value;
-        return $http.post('/products', self.product).then(function (response){
-            return response
-        }).catch(function (err) {
-            console.log('Post Route error', err);
-        })
-}
 
 })//end MyRetailService

@@ -4,18 +4,20 @@ myApp.controller('MyRetailController', function ($http, $scope, MyRetailService)
     vm.productData
     vm.priceShown = false;
     vm.editing = false;
-vm.message;
+    vm.message = ''
+
     //get Product of id searched
     vm.getProduct = function (id) {
         MyRetailService.getProduct(id).then(function (response) {
             vm.productData = response.data
             //if the product exists - edit price button will show
-            if (vm.productData != '') {
+            if (response.data != 'Not Found') {
                 vm.priceShown = true;
             }
-            console.log('response', response.data)
-
-    }).catch(function () {
+            else {
+                vm.message = 'Please check the product ID number as that ID does not exist.'
+            }
+        }).catch(function () {
             console.log(error)
         });
     }//end get Product function
@@ -46,12 +48,6 @@ vm.message;
     vm.cancel = function () {
         vm.editing = false;
 
-    }
-
-    vm.addProduct = function (product) {
-        MyRetailService.addProduct(product).then(function (response){
-            console.log(response)
-        })
     }
 
 })//end controller
