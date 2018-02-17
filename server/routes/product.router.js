@@ -55,16 +55,15 @@ router.get('/:id', function (req, res) {
             console.log(keyword)
             const response = await axios.get(url);
             const data = response.data;
-            const sendBack = data.product.item.product_description.title;
-            // var query = {}; 
-            // query['product_id'] = { "$eq": 1669652 }
+            const sendBack = data.product.item.product_description.title;           
             keyword = Number(keyword)
+            console.log('Getting this far')
             Product.findOne({ "product_id": keyword }, function (err, productFound) {
                 if (err) {
                     console.log("Error!", err);
                     res.sendStatus(500);
                 } else {
-
+console.log('getting here')
                     var sendProduct = {
                         name: sendBack,
                         product_id: productFound.product_id,
