@@ -13,6 +13,7 @@ body {
 }
 
 #searchBox {
+    padding-top: 20px;
 text-align: center;
 }
 
@@ -40,7 +41,7 @@ text-align: center;
 }
 
 #edit {
-    border-style: line;
+    margin-left: 20px;
 }
 
 p {
