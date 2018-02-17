@@ -50,24 +50,26 @@
         <div class="column">
             <div id="edit" ng-show="mrc.editing">
                 <h3>Update Price</h3>
-                <div layout-gt-xl="row">
-                    <md-input-container class="md-block editInput">
-                        <label>Value</label>
-                        <input id="value" ng-model="mrc.newPrice.value">
-                    </md-input-container>
-                </div>
-                <div layout-gt-xl="row">
-                    <md-input-container class="md-block editInput">
-                        <label>Currency Code</label>
-                        <input id="currency" ng-model="mrc.newPrice.currency_code">
-                    </md-input-container>
-                </div>
-                <md-button class="md-raised" ng-click="mrc.updatePrice(mrc.productData.product_id, mrc.newPrice)">
-                    Update
-                </md-button>
-                <md-button class="md-raised md-warn" ng-click="mrc.cancel()">
-                    Cancel
-                </md-button>
+                <form name="mrc.editForm">
+                    <div layout-gt-xl="row">
+                        <md-input-container class="md-block editInput">
+                            <label>Value</label>
+                            <input id="value" ng-model="mrc.newPrice.value">
+                        </md-input-container>
+                    </div>
+                    <div layout-gt-xl="row">
+                        <md-input-container class="md-block editInput">
+                            <label>Currency Code</label>
+                            <input id="currency" ng-model="mrc.newPrice.currency_code">
+                        </md-input-container>
+                    </div>
+                    <md-button class="md-raised" ng-click="mrc.updatePrice(mrc.productData.product_id, mrc.newPrice)">
+                        Update
+                    </md-button>
+                    <md-button class="md-raised md-warn" ng-click="mrc.cancel()">
+                        Cancel
+                    </md-button>
+                </form>
             </div>
         </div>
     </div>

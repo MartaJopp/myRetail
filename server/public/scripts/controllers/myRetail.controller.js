@@ -6,7 +6,6 @@ myApp.controller('MyRetailController', function ($http, $scope, MyRetailService)
     vm.editing = false;
     vm.message = ''
 
-
     //get Product of id searched
     vm.getProduct = function (id) {
         MyRetailService.getProduct(id).then(function (response) {
@@ -36,7 +35,6 @@ myApp.controller('MyRetailController', function ($http, $scope, MyRetailService)
 
     //send new price
     vm.updatePrice = function (id, newPrice) {
-        console.log(newPrice, id)
         MyRetailService.updatePrice(id, newPrice).then(function (response) {
             vm.editing = false;
             swal({
@@ -45,7 +43,14 @@ myApp.controller('MyRetailController', function ($http, $scope, MyRetailService)
                 "icon": "success"
             });
             //call getProduct(with the updated ID)
+            // if (vm.editing === false) {
+                vm.newPrice = {
+                    value: '',
+                    currency_code: ''
+                }
+            // }
             vm.getProduct(id)
+          
         }).catch(function () {
             swal('Something went wrong.');
             console.log(error)
