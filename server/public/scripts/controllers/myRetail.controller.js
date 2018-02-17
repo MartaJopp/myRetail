@@ -38,4 +38,9 @@ myApp.controller('MyRetailController', function ($http, $scope, MyRetailService)
         });
     }//end update price
 
+    vm.cancel = function (){
+        vm.editing = false;
+
+    }
+
 })//end controller
