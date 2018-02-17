@@ -16,9 +16,8 @@ var ProductSchema = new Schema({
 //Product document with product schema properties in prodcuts collection
 var Product = mongoose.model('Product', ProductSchema, 'products');
 
-//using axios for http request
+//requires axios for http request
 const axios = require("axios");
-let keyword;
 
 /**
  * @api {get} /products/:id Find the product
@@ -75,10 +74,12 @@ router.get('/:id', function (req, res) {
                 }
             });
         } catch (error) {
-            console.log('ERRORRRRRRRRRRRR');
+            console.log('Error - product not found');
             res.sendStatus(404)
         }
     };
+    //calls the axios getProduct - if successful hits the database for the
+    //current price.  If product not found at URL - sends back 404
     getProduct(url)
 })
 
@@ -99,7 +100,7 @@ router.get('/:id', function (req, res) {
  *    HTTP/1.1 500 Internal Server Error
  */
 
-//update the price of the product
+//update the current price and currency of the product based on id
 router.put('/:id', function (req, res) {
     let keyword = req.params.id;
     Product.update({ "product_id": keyword }, {
@@ -111,7 +112,7 @@ router.put('/:id', function (req, res) {
         }
     }, function (err, productFound) {
         if (err) {
-            console.log("Error!", err);
+            console.log("Error received updating product.", err);
             res.sendStatus(500);
         } else {
             res.sendStatus(204)

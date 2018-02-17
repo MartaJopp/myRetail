@@ -15,7 +15,7 @@ var mongoose = require('mongoose'); //require mongoose
 
 // Mongo Connection //
 var mongoURI = '';
-// process.env.MONGODB_URI will only be defined if you
+// process.env.MONGODB_URI will only be defined if
 // deployed
 if (process.env.MONGODB_URI != undefined) {
     // use the string value of the environment variable
@@ -25,10 +25,12 @@ if (process.env.MONGODB_URI != undefined) {
     mongoURI = 'mongodb://localhost:27017/product';
 }
 
+//conect to mongoose
 mongoose.connect(mongoURI, {
     useMongoClient: true
 });
 
+//error on connection
 mongoose.connection.on('error', function (err) {
     if (err) {
         console.log("MONGO ERROR: ", err);
@@ -36,12 +38,14 @@ mongoose.connection.on('error', function (err) {
     res.sendStatus(500);
 });
 
+//or successful connection
 mongoose.connection.on('open', function () {
     console.log("Connected to Mongo!");
 });
 
+//spins up server - lets us know server is running
 app.listen(port, function () {
-    console.log('Listening on port', port) // lets us know server is working
+    console.log('Listening on port', port)
 })
 
 module.exports = app;

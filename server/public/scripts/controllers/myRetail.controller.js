@@ -18,8 +18,8 @@ myApp.controller('MyRetailController', function ($http, $scope, MyRetailService)
                 vm.idNumber = ''
             }
             else {
-                vm.message = 'Please check the product ID number. Product ID: ' 
-                + vm.idNumber + ' does not exist.'
+                vm.message = 'Please check the product ID number. Product ID: '
+                    + vm.idNumber + ' does not exist.'
             }
         }).catch(function () {
             console.log(error)
